@@ -17,6 +17,15 @@ let myArray = [
     10 // 6
 ];
 
+// let newArray = myArray.splice(1, 3);
+// let newArray = myArray.slice(1, 3);
+
+console.log(myArray.reverse());
+
+// console.log(myArray);
+// console.log(newArray);
+
+
 
 // forEach,filter,some, every,map
 
@@ -36,8 +45,8 @@ let myArray = [
 //     return el > 70;
 // });
 
-let result = myArray.every(function(el) {
-    return el > 2;
-});
-console.log(myArray);
-console.log(result);
+// let result = myArray.every(function(el) {
+//     return el > 2;
+// });
+// console.log(myArray);
+// console.log(result);

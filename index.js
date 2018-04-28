@@ -1,5 +1,11 @@
+for (let i = 0; i <= 10; i++) {
+
+}
+console.log(i);
+
+
 // Data type
-var age = "10";
+// var age = "10";
 
 // if (age === 10) {
 //     console.log("it is ok");
@@ -8,5 +14,5 @@ var age = "10";
 
 // }
 
-var result = (age === 10) ? "it is ok" : "Not ok";
-console.log(result);
+// var result = (age === 10) ? "it is ok" : "Not ok";
+// console.log(result);
