@@ -1,0 +1,21 @@
+body {
+    font-size: 15px;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+#task-list li .done {
+    padding: 1px 5px;
+    font-size: 12px;
+}
+
+#hide-task-list:hover {
+    cursor: pointer;
+}
+
+#footer {
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+}
