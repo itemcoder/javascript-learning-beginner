@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', function(e) {
             taskName.textContent = task;
             doneBtn.textContent = "done";
 
-            // Add class
+            // // Add class
             li.classList.add("list-group-item");
             taskName.classList.add("task-name");
             doneBtn.classList.add("done", "btn", "btn-primary", "float-right");
 
-            // append child
+            // // append child
             li.appendChild(taskName);
             li.appendChild(doneBtn);
             taskList.appendChild(li);
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     });
 
-    // Change event
+    // // Change event
 
     const check = document.querySelector("#hide-task-list");
 
@@ -62,13 +62,16 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
     searchInput.addEventListener('keyup', function(e) {
         let s = e.target.value.toLowerCase();
-        let taks = taskList.querySelectorAll("li .task-name");
+        // console.log(s);
+        let taks = taskList.querySelectorAll("li");
+        // console.log(taks);
         taks.forEach(function(task) {
-            let taskContent = task.textContent.toLowerCase();
+            let taskContent = task.querySelector('.task-name').textContent.toLowerCase();
+            // console.log(Array.from(taskContent));
             if (taskContent.indexOf(s) != -1) {
-                task.parentElement.style.display = "block";
+                task.style.display = "block";
             } else {
-                task.parentElement.style.display = "none";
+                task.style.display = "none";
             }
         });
     });
