@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star rating</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        .stars-outer{
+            position: relative;
+            display: inline-block;
+        }
+
+        .stars-inner{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .stars-outer::after{
+            font-weight: 900;
+            content: "\f005 \f005 \f005 \f005 \f005";
+            font-family: 'Font Awesome 5 Free';
+            color: #ccc;
+        }
+
+        .stars-inner::after{
+            font-weight: 900;
+            content: "\f005 \f005 \f005 \f005 \f005";
+            font-family: 'Font Awesome 5 Free';
+            color: #f8ce0b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="form-group">
+            <select class="form-control" id="brand-select">
+                <option value="0" disabled selected>Select Brand</option>
+                <option value="apple">Apple</option>
+                <option value="dell">Dell</option>
+                <option value="asus">Asus</option>
+                <option value="hp">HP</option>
+                <option value="lenovo">Lenovo</option>
+                <option value="acer">Acer</option>
+                <option value="samsung">Samsung</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" step="0.1" min="0" max="5" disabled placeholder="Rating 1 - 5" id="rating-control" class="form-control">
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="apple">
+                    <td>Apple</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="dell">
+                    <td>Dell</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="asus">
+                    <td>Asus</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="hp">
+                    <td>HP</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="lenovo">
+                    <td>Lenovo</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="acer">
+                    <td>Acer</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+                <tr class="samsung">
+                    <td>Samsung</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+
+        const starTotal = 5;
+    
+        let ratings = {
+            apple : 4.5,
+            dell: 3.6,
+            asus: 2,
+            hp: 4,
+            lenovo: 3.2,
+            acer: 1.9,
+            samsung:3.9
+        };
+
+        document.addEventListener('DOMContentLoaded', loadRating);
+
+        const brandSelect = document.getElementById('brand-select');
+        const ratingControl = document.getElementById('rating-control');
+
+        let brand;
+
+        brandSelect.addEventListener('change', (e) => {
+            brand = e.target.value;
+            ratingControl.disabled = false;
+            ratingControl.value = ratings[brand];
+            ratingControl.focus();
+        });
+
+        ratingControl.addEventListener('blur', (e)=> {
+            const rating = e.target.value;
+
+            if(rating > 5 || rating < 0){
+                alert("Please make rating 1 - 5");
+                return false;
+            }
+
+            ratings[brand] = rating;
+            loadRating();
+        });
+
+        function loadRating(){
+            for(let rating in ratings){
+
+                const starPercentage = (ratings[rating]/starTotal) * 100;
+                const starPercentageRound = `${Math.round((starPercentage/10)*10)}%`;
+                document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRound;
+                document.querySelector(`.${rating} .number-rating`).innerHTML = ratings[rating];
+            }
+        }
+    </script>
+</body>
+</html>

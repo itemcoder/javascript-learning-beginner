@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+    
+    .stars-outer{
+        position: relative;
+        display: inline-block;
+    }
+
+    .stars-inner{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .stars-outer::after{
+        color: #ccc;
+    }
+    .stars-inner::after{
+        color: #f8ce0b;
+    }
+
+    .stars-outer::after,
+    .stars-inner::after{
+        content: "\f005 \f005 \f005 \f005 \f005";
+        font-family: "font Awesome 5 Free";
+        font-weight: 900;
+    }
+        
+    </style>
+</head>
+<body>
+    
+<div class="container mt-5">
+
+    <div class="form-group">
+        <select id="brand" class="form-control">
+            <option value="0" selected disabled>Select brand</option>
+            <option value="apple">Apple</option>
+            <option value="hp">HP</option>
+            <option value="acer">Acer</option>
+            <option value="samsung">Samsung</option>
+            <option value="lenovo">Lenovo</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="number" step="0.1" max="5" min="0" disabled placeholder="Rating 1 - 5" id="rating-control" class="form-control">
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="apple">
+                <td>Apple</td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                    <span class="rating-number"></span>
+                </td>
+            </tr>
+            <tr class="hp">
+                <td>HP Laptop</td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                    <span class="rating-number"></span>
+                </td>
+            </tr>
+            <tr class="acer">
+                <td>Acer</td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                    <span class="rating-number"></span>
+                </td>
+            </tr>
+            <tr class="samsung">
+                <td>Samsung</td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                    <span class="rating-number"></span>
+                </td>
+            </tr>
+            <tr class="lenovo">
+                <td>Lenove</td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+                    <span class="rating-number"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    const ratings = {
+        apple : 3.4,
+        hp: 3,
+        acer: 2.9,
+        samsung: 4,
+        lenovo:5
+    };
+
+    const outOf = 5;
+
+
+    document.addEventListener("DOMContentLoaded", loadRating);
+
+
+    const brandSelect = document.getElementById("brand");
+    const ratingControl = document.getElementById("rating-control");
+
+    let brand;
+
+    brandSelect.addEventListener('change', function(e){
+        brand = e.target.value;
+        ratingControl.disabled = false;
+        ratingControl.value = ratings[brand];
+    });
+
+    ratingControl.addEventListener('blur', (e)=>{
+        let rating = e.target.value;
+
+        if(rating > 5 || rating < 0){
+
+            alert("Please rate 1 - 5");
+            ratingControl.focus();
+            ratingControl.value = ratings[brand];
+            return false;
+        }
+
+        ratings[brand] = rating;
+
+        loadRating();
+    });
+
+
+
+    function loadRating() {
+
+        for(let rating in ratings){
+
+            const ratingPercent = Math.round((ratings[rating] / outOf) * 100);
+
+            document.querySelector(`.${rating} .stars-inner`).style.width = `${ratingPercent}%`;
+            
+            document.querySelector(`.${rating} .rating-number`).innerHTML = ratings[rating];
+
+        }
+        
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        div#counter div {
+            display: inline-block;
+            width: 80px;
+            text-align: center;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            margin: 10px;
+            background: pink;
+            padding: 5px;
+            font-size: 30px;
+        }
+        div#counter div span {
+            display: block;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="counter"></div>
+    </div>
+
+
+    <script>
+        const counter = document.getElementById("counter");
+
+        const dest = new Date("May 12, 2018 20:22:00").getTime();
+        
+
+
+        const inter = setInterval(() => {
+            const now = new Date().getTime();
+
+            const diff = dest - now;
+            
+            let day = Math.round((diff / (1000*60*60*24)));
+            console.log(day);
+            
+            let hour = Math.round((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 *60));
+            console.log(hour);
+
+            let minite = Math.round((diff % (1000 * 60 * 60 )) / (1000 * 60));
+            console.log(minite);
+
+            let second = Math.round((diff % (1000 * 60 ))/ 1000);
+            console.log(second);
+
+            counter.innerHTML = `
+                                <div>${day} <span>Days</span></div>
+                                <div>${hour} <span>Hours</span></div>
+                                <div>${minite} <span>Minites</span></div>
+                                <div>${second} <span>Seconds</span></div>
+                                `;
+
+            if(diff < 0){
+                clearInterval(inter);
+            }
+
+
+        }, 1000);
+
+    </script>
+</body>
+</html>

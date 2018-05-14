@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/font-awesome/css/font-awesome.min.css" />
+    <style>
+        
+       .ratings a {
+            font: normal normal normal 20px/1 FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            text-decoration: none;
+            margin-right: 2px;
+        }
+        .ratings a:after {
+            content: '\f006';
+            color: #d2d2d2;
+        }
+        
+        .ratings a.selected:after {
+            content: '\f005';
+            color: #50E3C2;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container my-4">
+        <div class="rating-wrap text-center">
+            <div class="ratings" data-current-rating="4">
+                <a href="#" data-rating-value="1" data-rating-text="1"></a>
+                <a href="#" data-rating-value="2" data-rating-text="2"></a>
+                <a href="#" data-rating-value="3" data-rating-text="3"></a>
+                <a href="#" data-rating-value="4" data-rating-text="4"></a>
+                <a href="#" data-rating-value="5" data-rating-text="5"></a>
+            </div>
+            <div class="current-rating"><b>Current Rating</b><span class="rating"></span></div>
+            <div class="current-rating"><b>Your Rating</b><span class="rating"></span> <a class=""></a><i class="fa fa-"></i></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
