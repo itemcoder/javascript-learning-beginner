@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        .iso-item-inner img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container my-4">
+
+       <div class="iso-control text-center">
+            <div class="btn-group my-4" id="iso-filter" role="group" aria-label="Basic example">
+                <button type="button" data-id="*" class="btn btn-secondary">All</button>
+                <button type="button" data-id=".red" class="btn btn-secondary">Red</button>
+                <button type="button" class="btn btn-secondary" data-id=".green">Green</button>
+                <button type="button" class="btn btn-secondary" data-id=".yellow">Yellow</button>
+                <button type="button" class="btn btn-secondary" data-id=".black">Black</button>
+            </div>
+       <div class="iso-control text-center">
+            <div class="btn-group my-4" id="iso-sort" role="group" aria-label="Basic example">
+                <button type="button" data-id="" class="btn btn-secondary">Orginal order</button>
+                <button type="button" data-id=".name" class="btn btn-secondary">Name</button>
+            </div>
+       </div>
+        <div class="row isotop-wapper">
+            <div class="col-md-3 iso-item red">
+                <div class="iso-item-inner">
+                    <h2 class="name">Apple</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item red">
+                <div class="iso-item-inner">
+                    <h2 class="name">Two</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item black">
+                <div class="iso-item-inner">
+                    <h2 class="name">Trew</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item red">
+                <div class="iso-item-inner">
+                    <h2 class="name">sky</h2>
+                    <img src="https://picsum.photos/300/500">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item red">
+                <div class="iso-item-inner">
+                    <h2 class="name">Alpha</h2>
+                    <img src="https://picsum.photos/290/200">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item green">
+                <div class="iso-item-inner">
+                    <h2 class="name">sky</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item green">
+                <div class="iso-item-inner">
+                    <h2 class="name">Xyz</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item yellow">
+                <div class="iso-item-inner">
+                    <h2 class="name">sky</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item red">
+                <div class="iso-item-inner">
+                    <h2 class="name">Green</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item yellow">
+                <div class="iso-item-inner">
+                    <h2 class="name">sky</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item red">
+                <div class="iso-item-inner">
+                    <h2 class="name">Blue</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+            <div class="col-md-3 iso-item green">
+                <div class="iso-item-inner">
+                    <h2 class="name">red</h2>
+                    <img src="https://picsum.photos/290/300">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
